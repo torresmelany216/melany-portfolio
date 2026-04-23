@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>Melany Torres — Content Creator & Brand Partner</title>
+<meta name="description" content="Melany Torres is a Chicago-born, Mexican-American content creator and UIUC Advertising student with 10 brand partnerships and a 4.6M view reel. Authentic lifestyle, college, and women's empowerment content.">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Playfair+Display:wght@700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:       #D4748A;
+  --rose-light: #EAA8B5;
+  --blush:      #F5DCE2;
+  --petal:      #FDF4F6;
+  --nude:       #EDE0D4;
+  --warm:       #FAF7F4;
+  --ink:        #26201E;
+  --stone:      #7A6E6A;
+  --stone-light:#B5ABA6;
+  --cream:      #F2EDE6;
+  --white:      #FFFFFF;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--warm); color: var(--ink); overflow-x: hidden; }
+
+/* NAV */
+#nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 3.5rem; transition: background .4s, box-shadow .4s; }
+#nav.scrolled { background: rgba(247,230,233,.96); backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(212,116,138,.18); }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: bold; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.nav-items { display: flex; align-items: center; gap: .2rem; list-style: none; flex-wrap: nowrap; }
+.nav-items a { display: block; padding: .4rem .6rem; font-size: .62rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); text-decoration: none; border-radius: 50px; transition: color .25s, background .25s; white-space: nowrap; }
+.nav-items a:hover, .nav-items a.active { color: var(--rose); background: var(--blush); }
+.nav-cta { background: var(--rose) !important; color: white !important; }
+.nav-cta:hover { background: var(--ink) !important; color: white !important; }
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; z-index: 600; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .3s, opacity .3s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-drawer { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(247,230,233,.98); backdrop-filter: blur(14px); z-index: 499; padding: 1.5rem 2rem 2rem; box-shadow: 0 8px 24px rgba(38,32,30,.08); transform: translateY(-10px); opacity: 0; transition: transform .3s ease, opacity .3s ease; pointer-events: none; }
+.nav-mobile-drawer.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+.nav-mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: .25rem; }
+.nav-mobile-drawer ul a { display: block; padding: .75rem 1rem; font-size: .75rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); text-decoration: none; border-radius: 8px; transition: color .2s, background .2s; }
+.nav-mobile-drawer ul a:hover { color: var(--rose); background: var(--blush); }
+.nav-mobile-drawer ul .nav-cta { background: var(--rose) !important; color: white !important; text-align: center; margin-top: .5rem; border-radius: 50px; }
+
+/* HERO */
+#hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; place-items: center; overflow: hidden; position: relative; background-image: url('images/Wallpaper%20.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; background-color: var(--warm); }
+.hero-left { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem; position: relative; z-index: 2; max-width: 900px; }
+.hero-kicker { display: flex; align-items: center; justify-content: center; gap: .75rem; font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.8rem; opacity: 0; animation: rise .9s .1s forwards; }
+.hero-kicker::before { content: ''; display: block; width: 28px; height: 1px; background: var(--rose); }
+.hero-name-and-selfie { display: flex; align-items: center; gap: 2rem; flex-wrap: nowrap; margin-bottom: 1rem; }
+.hero-name-and-selfie .hero-headline { margin-bottom: 0; flex-shrink: 0; }
+.hero-selfie-wrap { flex-shrink: 0; border: 12px solid #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 28px rgba(38,32,30,.18); }
+.hero-selfie { display: block; width: 240px; height: 240px; object-fit: cover; }
+.hero-headline { font-family: 'Dancing Script', cursive; font-size: clamp(3.4rem,6.5vw,5.5rem); font-weight: 600; line-height: 1.15; color: var(--rose); margin-bottom: 1rem; opacity: 0; animation: rise .9s .25s forwards; letter-spacing: .02em; }
+.hero-sub { font-family: 'Cormorant', serif; font-size: 1.25rem; font-style: italic; font-weight: 300; color: var(--ink); margin-bottom: 1rem; line-height: 1.6; max-width: 560px; opacity: 0; animation: rise .9s .4s forwards; }
+.hero-disciplines { font-family: 'Jost', sans-serif; font-size: .9rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--rose); margin-top: 2.5rem; margin-bottom: 1.5rem; opacity: 0; animation: rise .9s .35s forwards; }
+.hero-hook { font-size: .85rem; font-weight: 400; color: var(--stone); margin-bottom: 2rem; line-height: 1.7; max-width: 520px; opacity: 0; animation: rise .9s .5s forwards; }
+.hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2.2rem; opacity: 0; animation: rise .9s .55s forwards; }
+.badge { font-size: .68rem; font-weight: 500; letter-spacing: .08em; padding: .4rem 1rem; border-radius: 50px; border: 1px solid var(--rose-light); color: var(--ink); background: rgba(255,255,255,.85); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; opacity: 0; animation: rise .9s .7s forwards; }
+.btn-primary { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 2rem; background: var(--rose); color: white; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-radius: 50px; transition: background .25s, transform .2s; }
+.btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.8rem; border: 1px solid var(--stone-light); color: var(--stone); font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-radius: 50px; transition: border-color .25s, color .25s; }
+.btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+
+/* MARQUEE */
+.marquee-strip { background: var(--rose); color: white; padding: .75rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-flex; animation: marquee 28s linear infinite; }
+.marquee-item { font-size: .65rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; padding: 0 2.5rem; }
+.marquee-dot { opacity: .5; }
+
+/* SECTIONS */
+.section { padding: 7rem 4rem; position: relative; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.eyebrow { display: flex; align-items: center; gap: .75rem; font-size: .62rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+.eyebrow::before { display: none; }
+h2.display { font-family: 'Libre Baskerville', serif; font-size: clamp(2rem,3.8vw,3.2rem); font-weight: 400; line-height: 1.12; color: var(--ink); margin-bottom: 2rem; }
+h2.display em { font-style: italic; color: var(--rose); }
+.body-copy { font-size: .93rem; line-height: 1.95; color: var(--stone); max-width: 600px; }
+.body-copy strong { color: var(--ink); font-weight: 500; }
+
+/* ABOUT */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center; }
+.about-stars-section { position: relative; overflow: visible; }
+.about-star { position: absolute; pointer-events: none; }
+.about-star svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 12px rgba(0,0,0,.15)); }
+.about-star-1 { width: 90px; height: 90px; top: 2rem; left: 1.5rem; }
+.about-star-2 { width: 55px; height: 55px; top: 0.5rem; left: 7.5rem; }
+.about-star-3 { width: 55px; height: 55px; top: 0.5rem; right: 7.5rem; }
+.about-star-4 { width: 90px; height: 90px; top: 2rem; right: 1.5rem; }
+.about-photos { position: relative; height: 620px; }
+.about-photo-main { position: absolute; top: 0; left: 0; width: 72%; height: 78%; overflow: hidden; background: var(--nude); }
+.about-photo-accent { position: absolute; bottom: 0; right: 0; width: 52%; height: 50%; overflow: hidden; background: var(--blush); border: 5px solid var(--warm); }
+.about-photo-main img, .about-photo-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-photo-main video, .about-photo-main iframe { width: 100%; height: 100%; object-fit: cover; display: block; border: none; }
+.about-photo-accent video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-pull { font-family: 'Cormorant', serif; font-size: 1.55rem; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--ink); border-left: 2px solid var(--rose); padding-left: 1.5rem; margin: 2rem 0; }
+.about-facts { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--blush); }
+.fact { display: flex; align-items: center; gap: .5rem; font-size: .78rem; color: var(--stone); }
+.fact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose-light); flex-shrink: 0; }
+
+/* ORIGIN / STORY */
+#origin { background: var(--ink); overflow: hidden; }
+#origin .eyebrow { color: var(--rose-light); }
+#origin .eyebrow::before { background: var(--rose-light); }
+#origin h2.display { color: var(--white); }
+#origin h2.display em { color: var(--rose-light); }
+.origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.origin-text .body-copy { color: rgba(255,255,255,.55); max-width: 520px; }
+.origin-text .body-copy strong { color: var(--white); }
+.origin-timeline { display: flex; flex-direction: column; }
+.tl-item { display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.tl-item:last-child { border-bottom: none; }
+.tl-year { font-family: 'Cormorant', serif; font-size: 1.1rem; font-style: italic; color: var(--rose-light); font-weight: 300; padding-top: .1rem; }
+.tl-title { font-size: .82rem; font-weight: 600; color: white; margin-bottom: .3rem; }
+.tl-body { font-size: .78rem; line-height: 1.7; color: rgba(255,255,255,.4); }
+
+/* WORK / INTERNSHIPS */
+#work { background: var(--cream); }
+.work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
+.internship-cases { margin-top: 0; }
+.internship-case { margin-bottom: 0; }
+.internship-case-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+.internship-media { position: relative; aspect-ratio: 9/16; width: 100%; max-height: 520px; background: var(--nude); border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,116,138,.08); }
+.internship-media img, .internship-media iframe, .internship-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
+.internship-content { padding: 0.5rem 0; }
+.internship-meta { font-size: .62rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--rose); margin-bottom: .6rem; }
+.internship-company { font-family: 'Libre Baskerville', serif; font-size: clamp(1.35rem,2.2vw,1.75rem); font-weight: 700; color: var(--ink); margin-bottom: 1rem; line-height: 1.25; }
+.internship-case .body-copy { font-size: .9rem; line-height: 1.85; color: var(--stone); margin-bottom: 1rem; }
+.internship-media-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; position: relative; width: 100%; }
+.internship-media-dual.internship-media-overlap { grid-template-columns: 1fr; gap: 0; min-height: 400px; position: relative; background: transparent; border: none; box-shadow: none; }
+.internship-media-overlap .internship-video-slot:first-child { position: absolute; top: 0; left: 0; width: 48%; max-height: 82%; aspect-ratio: 9/16; z-index: 1; }
+.internship-media-overlap .internship-video-slot:last-child { position: absolute; right: 0; bottom: 0; width: 48%; max-height: 82%; aspect-ratio: 9/16; z-index: 2; }
+.internship-video-slot { position: relative; aspect-ratio: 9/16; width: 100%; background: var(--nude); border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,116,138,.08); }
+.internship-video-slot video, .internship-video-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; display: block; }
+.work-result-strip { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 0; }
+.work-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.work-link { font-size: .72rem; font-weight: 600; letter-spacing: .08em; color: var(--rose); text-decoration: none; border: 1.5px solid var(--rose); border-radius: 50px; padding: .4rem 1rem; transition: background .2s, color .2s; }
+.work-link:hover { background: var(--rose); color: white; }
+.work-result { text-align: center; }
+.work-result-num { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; font-weight: 700; color: var(--rose); line-height: 1; }
+.work-result-lbl { font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); margin-top: .3rem; }
+
+/* BRANDS */
+#brands { background: var(--blush); }
+.brands-intro { margin-bottom: 3rem; }
+.brands-phones-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem 1.25rem; }
+.brand-phone-item { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
+.brand-phone-frame { width: 100%; max-width: 160px; aspect-ratio: 9/19; border-radius: 28px; overflow: hidden; border: 3px solid var(--ink); box-shadow: 0 14px 40px rgba(38,32,30,.22); background: var(--nude); position: relative; flex-shrink: 0; }
+.brand-phone-frame video, .brand-phone-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.brand-phone-notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 36%; height: 7px; background: var(--ink); border-radius: 10px; z-index: 3; pointer-events: none; }
+.brand-phone-placeholder { position: absolute; inset: 0; background: linear-gradient(160deg, var(--blush) 0%, var(--nude) 100%); }
+.brand-phone-caption { text-align: center; width: 100%; max-width: 160px; display: flex; flex-direction: column; align-items: center; gap: .3rem; }
+.brand-phone-caption-logo { height: 28px; max-width: 110px; object-fit: contain; display: block; }
+.brand-phone-caption-wordmark { font-family: 'Libre Baskerville', serif; font-size: .8rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.brand-phone-badge { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--rose); display: block; }
+.brand-phone-cat { font-size: .6rem; color: var(--stone); line-height: 1.4; }
+
+/* VIDEOS */
+#videos { background: var(--white); }
+.videos-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+.videos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.video-card { position: relative; }
+.video-shell { position: relative; padding-bottom: 177.78%; background: var(--ink); overflow: hidden; border-radius: 4px; }
+.video-shell iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.video-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 1.5rem; background: linear-gradient(to top,rgba(38,32,30,.88) 0%,transparent 50%); text-decoration: none; transition: background .3s; }
+.video-overlay:hover { background: linear-gradient(to top,rgba(212,116,138,.7) 0%,transparent 60%); }
+.video-tag { align-self: flex-start; font-size: .58rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--rose-light); background: rgba(0,0,0,.4); padding: .3rem .7rem; border-radius: 50px; margin-bottom: auto; }
+.video-play { width: 44px; height: 44px; border: 1.5px solid rgba(255,255,255,.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: .9rem; margin-bottom: .5rem; }
+.video-title { font-family: 'Cormorant', serif; font-size: 1.05rem; font-style: italic; color: white; text-align: center; margin-bottom: .5rem; line-height: 1.35; }
+.video-info { padding: .8rem 0 0; display: flex; justify-content: space-between; }
+.video-stat { font-size: .68rem; color: var(--stone); }
+.video-platform { font-size: .62rem; font-weight: 600; letter-spacing: .1em; color: var(--rose); text-transform: uppercase; }
+
+/* STATS */
+#stats { background: var(--cream); }
+.stats-top { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 4rem; }
+.big-stat-strip { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+.big-stat { padding: 2rem 1.5rem; background: var(--petal); border-top: 3px solid var(--rose); }
+.big-stat-num { font-family: 'Libre Baskerville', serif; font-size: 2.8rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: .3rem; }
+.big-stat-label { font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+.platforms-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--blush); border: 1px solid var(--blush); overflow: hidden; }
+.plat-card { background: var(--white); padding: 2rem 1.8rem; text-align: center; transition: background .3s; }
+.plat-card:hover { background: var(--petal); }
+.plat-name { font-family: 'Libre Baskerville', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; }
+.plat-handle { font-size: .7rem; color: var(--rose); margin-bottom: 1.2rem; }
+.plat-divider { height: 1px; background: var(--blush); margin-bottom: 1.2rem; }
+.plat-metrics { display: flex; justify-content: space-around; gap: .5rem; }
+.pm-num { font-family: 'Libre Baskerville', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.pm-lbl { font-size: .58rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--stone-light); margin-top: .2rem; }
+.pm-note { font-size: .65rem; color: var(--stone-light); font-style: italic; text-align: center; margin-top: 1.5rem; }
+
+/* AUDIENCE */
+#audience { background: var(--white); }
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.aud-bars { margin-top: .5rem; }
+.aud-bar { margin-bottom: 1.6rem; }
+.aud-bar-head { display: flex; justify-content: space-between; font-size: .8rem; font-weight: 500; color: var(--ink); margin-bottom: .5rem; }
+.aud-bar-pct { color: var(--stone); font-weight: 400; }
+.aud-track { height: 3px; background: var(--blush); border-radius: 2px; overflow: hidden; }
+.aud-fill { height: 100%; background: linear-gradient(90deg,var(--rose),var(--rose-light)); border-radius: 2px; transition: width 1.8s cubic-bezier(.16,1,.3,1); width: 0; }
+.aud-note { font-size: .65rem; color: var(--stone-light); font-style: italic; margin-top: 1.2rem; }
+.aud-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+.atag { font-size: .68rem; padding: .38rem .9rem; border: 1px solid var(--rose-light); border-radius: 50px; color: var(--ink); background: var(--white); }
+
+/* CAMPUS IMPACT */
+#campus { background: var(--blush); }
+.campus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+.campus-item { background: var(--white); border-radius: 12px; padding: 2.2rem 2rem; border: 1px solid rgba(212,116,138,.15); }
+.campus-phones { display: flex; gap: 1.5rem; margin-top: 1.75rem; justify-content: center; }
+.camcorder-wrap { margin-top: 1.75rem; display: flex; justify-content: center; }
+.camcorder-body { display: flex; align-items: center; background: #1a1a1a; border-radius: 10px; padding: 10px 10px 10px 8px; gap: 8px; box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08); }
+.camcorder-buttons { display: flex; flex-direction: column; gap: 8px; padding: 4px 2px; }
+.camcorder-btn { width: 10px; height: 10px; border-radius: 50%; background: #3a3a3a; border: 1px solid #555; }
+.camcorder-btn.red { background: #c0392b; border-color: #e74c3c; box-shadow: 0 0 6px rgba(192,57,43,.6); }
+.camcorder-screen { position: relative; width: 300px; aspect-ratio: 4/3; background: #0a0a0a; border-radius: 4px; overflow: hidden; border: 2px solid #333; }
+.camcorder-hud { position: absolute; top: 6px; left: 8px; right: 8px; display: flex; justify-content: space-between; z-index: 2; font-size: .6rem; font-family: monospace; color: rgba(255,255,255,.85); text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+.camcorder-hud-left { color: #e74c3c; font-weight: 700; }
+.camcorder-hud-bottom { position: absolute; bottom: 6px; left: 8px; z-index: 2; font-size: .55rem; font-family: monospace; color: rgba(255,255,255,.7); }
+.camcorder-grip { width: 18px; height: 80px; background: #252525; border-radius: 4px; border: 1px solid #333; align-self: center; }
+.campus-phone-frame { width: 140px; aspect-ratio: 9/19; border-radius: 28px; overflow: hidden; border: 3px solid var(--ink); box-shadow: 0 14px 40px rgba(38,32,30,.22); background: var(--nude); position: relative; flex-shrink: 0; }
+.campus-phone-frame video, .campus-phone-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.campus-item-label { font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--rose); margin-bottom: .75rem; }
+.campus-item-title { font-family: 'Libre Baskerville', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: .75rem; line-height: 1.3; }
+.campus-item-body { font-size: .82rem; line-height: 1.8; color: var(--stone); }
+
+/* WHY */
+#why { background: var(--ink); position: relative; overflow: hidden; }
+#why::before { content: 'MT'; position: absolute; right: -2rem; bottom: -4rem; font-family: 'Libre Baskerville', serif; font-size: 28rem; font-style: italic; color: rgba(255,255,255,.02); pointer-events: none; line-height: 1; }
+#why .eyebrow { color: var(--rose-light); }
+#why .eyebrow::before { background: var(--rose-light); }
+#why h2.display { color: white; }
+#why h2.display em { color: var(--rose-light); }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.06); margin-top: 3rem; overflow: hidden; }
+.why-item { background: var(--ink); padding: 2.2rem 2rem; transition: background .3s; }
+.why-item:hover { background: rgba(212,116,138,.07); }
+.why-num { font-family: 'Cormorant', serif; font-size: 2rem; font-weight: 300; color: rgba(212,116,138,.25); line-height: 1; margin-bottom: 1rem; }
+.why-title { font-size: .88rem; font-weight: 600; color: white; margin-bottom: .5rem; }
+.why-body { font-size: .78rem; line-height: 1.78; color: rgba(255,255,255,.4); }
+
+/* CONTACT */
+#contact { background: var(--petal); text-align: center; padding: 8rem 4rem; }
+#contact .eyebrow { justify-content: center; }
+.contact-lede { font-family: 'Cormorant', serif; font-size: 1.2rem; font-style: italic; font-weight: 300; color: var(--stone); margin-bottom: 2.5rem; }
+.contact-email-link { display: inline-block; font-family: 'Libre Baskerville', serif; font-size: clamp(1.3rem,2.5vw,1.8rem); font-style: italic; color: var(--rose); text-decoration: none; border-bottom: 1px solid var(--rose-light); padding-bottom: .1rem; margin-bottom: 2.5rem; transition: color .25s; }
+.contact-email-link:hover { color: var(--ink); border-color: var(--ink); }
+.contact-socials { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; margin-bottom: 3rem; }
+.soc-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.5rem; border: 1px solid var(--rose-light); border-radius: 50px; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: all .25s; background: var(--white); }
+.soc-btn:hover { background: var(--rose); border-color: var(--rose); color: white; }
+.contact-types { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-bottom: 4rem; }
+.ctype { font-size: .68rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--stone-light); padding: .3rem .9rem; border: 1px dashed var(--rose-light); border-radius: 50px; }
+.contact-sig { font-family: 'Cormorant', serif; font-size: 3rem; font-style: italic; font-weight: 300; color: var(--rose-light); letter-spacing: .05em; }
+
+/* FOOTER */
+footer { background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 4rem; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Cormorant', serif; font-size: 1rem; font-style: italic; color: rgba(255,255,255,.4); text-decoration: none; }
+.footer-copy { font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.2); }
+
+/* ANIMATIONS */
+@keyframes rise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+.reveal { opacity:0; transform:translateY(32px); transition:opacity .85s ease, transform .85s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #nav { padding:0 1.5rem; }
+  .nav-items { display:none; }
+  .nav-hamburger { display:flex; }
+  .nav-mobile-drawer { display:block; }
+  #hero { grid-template-columns:1fr; }
+  .hero-left { padding:7rem 1.5rem 2rem; }
+  .hero-name-and-selfie { flex-direction: column; gap: 1rem; }
+  .hero-selfie { width: 180px; height: 180px; }
+  .about-grid, .origin-grid, .stats-top, .audience-grid, .campus-grid, .work-intro { grid-template-columns:1fr; gap:3rem; }
+  .about-photos { height:360px; }
+  .section { padding:4rem 1.5rem; }
+  .videos-intro { grid-template-columns:1fr; gap:1.5rem; }
+  .videos-grid { grid-template-columns:1fr; max-width:340px; margin:0 auto; }
+  .platforms-row { grid-template-columns:1fr; }
+  .brands-phones-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns:1fr 1fr; }
+  .big-stat-strip { grid-template-columns:1fr 1fr; }
+  .internship-case-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .internship-media { max-height:380px; }
+  footer { flex-direction:column; text-align:center; padding:1.2rem; }
+  #contact { padding:5rem 1.5rem; }
+}
+@media(max-width:540px){
+  .why-grid, .big-stat-strip { grid-template-columns:1fr; }
+  .brands-phones-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">Melany Torres</a>
+  <ul class="nav-items">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#campus">Campus</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Me</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-drawer" id="mobileDrawer">
+  <ul>
+    <li><a href="#about" class="drawer-link">About</a></li>
+    <li><a href="#work" class="drawer-link">Work</a></li>
+    <li><a href="#brands" class="drawer-link">Brands</a></li>
+    <li><a href="#campus" class="drawer-link">Campus</a></li>
+    <li><a href="#stats" class="drawer-link">Stats</a></li>
+    <li><a href="#contact" class="drawer-link nav-cta">Work With Me</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-name-and-selfie">
+      <h1 class="hero-headline">Melany Torres</h1>
+      <div class="hero-selfie-wrap">
+        <img src="images/selfie.jpg" alt="Melany Torres" class="hero-selfie">
+      </div>
+    </div>
+    <p class="hero-disciplines">Advertising &nbsp;|&nbsp; Marketing &nbsp;|&nbsp; Content Creation</p>
+    <div class="hero-badges">
+      <span class="badge">7K+ Instagram</span>
+      <span class="badge">4.6M View Reel</span>
+      <span class="badge">10 Brand Partnerships</span>
+      <span class="badge">UIUC Advertising '27</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Work With Me</a>
+      <a class="btn-ghost" href="#brands">See My Work</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="section about-stars-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photos reveal">
+        <div class="about-photo-main">
+          <video src="images/about-video.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="about-photo-accent">
+          <video src="images/lifestyle-video.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div>
+        <h2 class="display reveal" style="margin-bottom:1.5rem;">Hi, I'm Melany!</h2>
+        <p class="body-copy reveal reveal-delay-1">I've been passionate about content creation since I was 10 years old, long before I even knew what a "content creator" was. I'd pick up any camera I could find and just start talking. Over time, my phone stopped being a device and started feeling like my best friend.</p>
+        <p class="body-copy reveal reveal-delay-2" style="margin-top:1rem;">I'm a lifestyle content creator and a proud Latina from Chicago. Representing my culture is everything to me, whether that's bringing my parents on camera, sharing our food, or just existing as myself every day. (My audience might actually love my mom more than they love me, and honestly? Same.)</p>
+        <p class="body-copy reveal reveal-delay-3" style="margin-top:1rem;">My goal is to turn this passion into a full-time career. And I'm already on my way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="section-inner">
+    <div class="work-intro">
+      <div>
+        <div class="eyebrow reveal">Work</div>
+        <h2 class="display reveal reveal-delay-1" style="font-size:2.2rem; white-space:nowrap;">I don't just create for <em>myself.</em></h2>
+      </div>
+    </div>
+    <div class="internship-cases">
+      <article class="internship-case reveal">
+        <div class="internship-case-inner">
+          <div class="internship-media internship-media-dual internship-media-overlap">
+            <div class="internship-video-slot">
+              <video src="images/hangrys-video.mp4" controls playsinline loop muted></video>
+            </div>
+            <div class="internship-video-slot">
+              <img src="images/hangrys-tiktok.jpg" alt="Hangry's TikTok" style="object-position: top;">
+            </div>
+          </div>
+          <div class="internship-content">
+            <p class="internship-meta">Social Media Manager & Content Creator · 2022 – Present</p>
+            <h3 class="internship-company">Hangry's Restaurant</h3>
+            <p class="body-copy">A local Chicago restaurant with no social presence. I built it from scratch, completely on my own. No agency, no paid ads, no team. Just me, my phone, and a strategy that worked.</p>
+            <div class="work-result-strip">
+              <div class="work-result">
+                <div class="work-result-num">8.5K</div>
+                <div class="work-result-lbl">TikTok Followers</div>
+              </div>
+              <div class="work-result">
+                <div class="work-result-num">195.4K</div>
+                <div class="work-result-lbl">TikTok Likes</div>
+              </div>
+              <div class="work-result">
+                <div class="work-result-num">4K+</div>
+                <div class="work-result-lbl">Instagram Followers</div>
+              </div>
+            </div>
+            <div class="work-links">
+              <a href="https://www.tiktok.com/@hangryschicago" target="_blank" class="work-link">TikTok ↗</a>
+              <a href="https://www.instagram.com/hangryschicago/" target="_blank" class="work-link">Instagram ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" class="section">
+  <div class="section-inner">
+    <div class="brands-intro">
+      <div class="eyebrow reveal">Brand Partners</div>
+      <h2 class="display reveal reveal-delay-1" style="font-size:5rem;"><em>Partnerships.</em></h2>
+    </div>
+    <div class="brands-phones-grid reveal reveal-delay-2">
+
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <img src="images/princess-polly.jpg" alt="Princess Polly">
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-princess-polly.svg" alt="Princess Polly">
+          <span class="brand-phone-badge">Ambassador</span>
+          <div class="brand-phone-cat">Fashion</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/savage-x-fenty.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/savage-x-fenty.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-savage-x-fenty.png" alt="Savage X Fenty" style="height:120px; max-width:160px; margin-top:-20px;">
+          <span class="brand-phone-badge">Ambassador</span>
+          <div class="brand-phone-cat">Lingerie & Body Positivity</div>
+        </div>
+      </div>
+
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <img src="images/bubble-skincare.jpg" alt="Bubble Skincare">
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-bubble-skincare.svg" alt="Bubble Skincare">
+          <span class="brand-phone-badge">Ambassador</span>
+          <div class="brand-phone-cat">Skincare</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/soap-glory.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/soap-glory.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-soap-glory.svg" alt="Soap & Glory">
+          <span class="brand-phone-badge">Current Partner</span>
+          <div class="brand-phone-cat">Beauty & Body Care</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/red-feather-butter.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/red-feather-butter.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-red-feather-butter.png" alt="Red Feather Butter">
+          <span class="brand-phone-badge">Partner</span>
+          <div class="brand-phone-cat">Food & Lifestyle</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/rest-bedding.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/rest-bedding.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <div class="brand-phone-caption-wordmark">Rest®</div>
+          <span class="brand-phone-badge">Partner</span>
+          <div class="brand-phone-cat">Home & Lifestyle</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/clever-fox.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/clever-fox.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-clever-fox.png" alt="Clever Fox">
+          <span class="brand-phone-badge">Partner</span>
+          <div class="brand-phone-cat">Stationery & Planning</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/thingsbook.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/thingsbook.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-thingsbook.png" alt="ThingsBook" style="border-radius:10px;">
+          <span class="brand-phone-badge">Brand Deal · 3 Videos</span>
+          <div class="brand-phone-cat">App & Campus Finds</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/just-be-acai.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/just-be-acai.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <img class="brand-phone-caption-logo" src="images/logo-just-be-acai.png" alt="Just Be Acai">
+          <span class="brand-phone-badge">Brand Deal</span>
+          <div class="brand-phone-cat">Campus · Food</div>
+        </div>
+      </div>
+
+      <!-- Add video: images/illinois-vintage-fest.mp4 -->
+      <div class="brand-phone-item">
+        <div class="brand-phone-frame">
+          <div class="brand-phone-notch"></div>
+          <video src="images/illinois-vintage-fest.mp4" autoplay muted loop playsinline></video>
+          <div class="brand-phone-placeholder"></div>
+        </div>
+        <div class="brand-phone-caption">
+          <div class="brand-phone-caption-wordmark">Illinois Vintage Fest</div>
+          <span class="brand-phone-badge">Brand Deal</span>
+          <div class="brand-phone-cat">Campus · Events</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS -->
+<section id="stats" class="section">
+  <div class="section-inner">
+    <div class="stats-top">
+      <div>
+        <div class="eyebrow reveal">By The Numbers</div>
+        <h2 class="display reveal reveal-delay-1">My <em>reach.</em></h2>
+      </div>
+      <div class="big-stat-strip reveal reveal-delay-2">
+        <div class="big-stat"><div class="big-stat-num">4.6M</div><div class="big-stat-label">Top Reel Views</div></div>
+        <div class="big-stat"><div class="big-stat-num">10</div><div class="big-stat-label">Brand Partnerships</div></div>
+        <div class="big-stat"><div class="big-stat-num">7K+</div><div class="big-stat-label">Instagram Followers</div></div>
+        <div class="big-stat"><div class="big-stat-num">7+</div><div class="big-stat-label">Yrs Creating</div></div>
+      </div>
+    </div>
+    <div class="platforms-row reveal">
+      <div class="plat-card">
+        <div class="plat-name">TikTok</div>
+        <div class="plat-handle">@mmelanytorress</div>
+        <div class="plat-divider"></div>
+        <div class="plat-metrics">
+          <div><div class="pm-num">—</div><div class="pm-lbl">Followers</div></div>
+          <div><div class="pm-num">—</div><div class="pm-lbl">Avg Views</div></div>
+          <div><div class="pm-num">—</div><div class="pm-lbl">Engagement</div></div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-name">Instagram</div>
+        <div class="plat-handle">@mmelanytorress</div>
+        <div class="plat-divider"></div>
+        <div class="plat-metrics">
+          <div><div class="pm-num">7.6K</div><div class="pm-lbl">Followers</div></div>
+          <div><div class="pm-num">35K</div><div class="pm-lbl">Avg Views</div></div>
+          <div><div class="pm-num">5%</div><div class="pm-lbl">Engagement</div></div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-name">YouTube</div>
+        <div class="plat-handle">@mmelanytorress</div>
+        <div class="plat-divider"></div>
+        <div class="plat-metrics">
+          <div><div class="pm-num">—</div><div class="pm-lbl">Subscribers</div></div>
+          <div><div class="pm-num">—</div><div class="pm-lbl">Avg Views</div></div>
+          <div><div class="pm-num">—</div><div class="pm-lbl">Watch Time</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="pm-note reveal">*Fill in your TikTok and YouTube stats. Drop your analytics screenshots and I'll update these.</p>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience" class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Who's Watching</div>
+    <h2 class="display reveal reveal-delay-1" style="margin-bottom:3rem;">An audience brands<br><em>actually want to reach.</em></h2>
+    <div class="audience-grid">
+      <div>
+        <div class="aud-bars reveal reveal-delay-1">
+          <div class="aud-bar"><div class="aud-bar-head"><span>Women</span><span class="aud-bar-pct">~80%</span></div><div class="aud-track"><div class="aud-fill" data-width="80"></div></div></div>
+          <div class="aud-bar"><div class="aud-bar-head"><span>Ages 18–24</span><span class="aud-bar-pct">~65%</span></div><div class="aud-track"><div class="aud-fill" data-width="65"></div></div></div>
+          <div class="aud-bar"><div class="aud-bar-head"><span>Latina / Hispanic</span><span class="aud-bar-pct">~55%</span></div><div class="aud-track"><div class="aud-fill" data-width="55"></div></div></div>
+          <div class="aud-bar"><div class="aud-bar-head"><span>US-Based</span><span class="aud-bar-pct">~90%</span></div><div class="aud-track"><div class="aud-fill" data-width="90"></div></div></div>
+          <div class="aud-bar"><div class="aud-bar-head"><span>College-Aged</span><span class="aud-bar-pct">~60%</span></div><div class="aud-track"><div class="aud-fill" data-width="60"></div></div></div>
+        </div>
+        <p class="aud-note reveal">*Update with your actual analytics</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="body-copy">College women who don't just scroll. They comment, DM, and come back. They follow me because they feel less alone.</p>
+        <div class="aud-tags">
+          <span class="atag">College Women</span><span class="atag">Latina / Hispanic</span><span class="atag">Gen Z</span><span class="atag">First-Gen Students</span><span class="atag">Chicago / Midwest</span><span class="atag">Beauty & Lifestyle</span><span class="atag">Women's Empowerment</span><span class="atag">Campus Life</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS IMPACT -->
+<section id="campus" class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Campus Impact</div>
+    <h2 class="display reveal reveal-delay-1">UIUC's <em>campus life.</em></h2>
+    <div class="campus-grid">
+      <div class="campus-item reveal reveal-delay-1">
+        <div class="campus-item-label">University Partnership</div>
+        <div class="campus-item-title">Spring Jam: UIUC's Annual Concert Event</div>
+        <p class="campus-item-body">Selected as the lead actress to promote Spring Jam, UIUC's annual concert event. The university came to me. I filmed, I showed up, and the video went viral, helping drive awareness and scale attendance for the performing artist. The content was featured across the Illinois Union, Illinois Board, and State Farm Center, reaching the entire UIUC student body.</p>
+        <div class="work-links" style="margin-top:1rem;">
+          <a href="https://www.instagram.com/reel/DWXYSuIh1AJ/" target="_blank" class="work-link">Watch the Reel ↗</a>
+        </div>
+        <div class="campus-phones">
+          <div class="campus-phone-frame">
+            <div class="brand-phone-notch"></div>
+            <video src="images/spring-jam-1.mp4" autoplay muted loop playsinline></video>
+            <div class="brand-phone-placeholder"></div>
+          </div>
+        </div>
+      </div>
+      <div class="campus-item reveal reveal-delay-2">
+        <div class="campus-item-label">Press Feature</div>
+        <div class="campus-item-title">Interviewed by the Illinois News Room</div>
+        <p class="campus-item-body">The university's official news outlet reached out to hear my story as a first-gen Latina figuring out college life. This is a part of my story.</p>
+        <div class="camcorder-wrap">
+          <div class="camcorder-body">
+            <div class="camcorder-buttons">
+              <div class="camcorder-btn"></div>
+              <div class="camcorder-btn"></div>
+              <div class="camcorder-btn"></div>
+              <div class="camcorder-btn red"></div>
+            </div>
+            <div class="camcorder-screen">
+              <video src="images/illinois-newsroom.mp4" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></video>
+              <div class="camcorder-hud">
+                <span class="camcorder-hud-left">● REC</span>
+                <span class="camcorder-hud-right">0:51:03</span>
+              </div>
+              <div class="camcorder-hud-bottom">
+                <span>Illinois News Room</span>
+              </div>
+            </div>
+            <div class="camcorder-grip"></div>
+          </div>
+        </div>
+        <a href="https://vimeo.com/1168995095" target="_blank" rel="noopener" class="work-link" style="margin-top:.8rem;display:inline-block;">Watch Feature &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Let's Connect</div>
+    <h2 class="display">Ready to make<br>something <em>real</em><br>together?</h2>
+    <p class="contact-lede">Sponsorships · Brand Deals · Gifted Collabs · Campus Events · UGC</p>
+    <a class="contact-email-link" href="mailto:torresmelany216@gmail.com">torresmelany216@gmail.com</a>
+    <div class="contact-socials">
+      <a class="soc-btn" href="https://www.tiktok.com/@mmelanytorress" target="_blank">TikTok</a>
+      <a class="soc-btn" href="https://www.instagram.com/mmelanytorress/" target="_blank">Instagram</a>
+      <a class="soc-btn" href="#" target="_blank">YouTube</a>
+    </div>
+    <div class="contact-types">
+      <span class="ctype">Sponsored Content</span>
+      <span class="ctype">Gifted Product</span>
+      <span class="ctype">Brand Ambassador</span>
+      <span class="ctype">Campus & Events</span>
+      <span class="ctype">UGC Creation</span>
+    </div>
+    <div class="contact-sig">Melany Torres</div>
+  </div>
+</section>
+
+<footer>
+  <a class="footer-logo" href="#hero">Melany Torres</a>
+  <span class="footer-copy">© 2026 · Chicago, IL · UIUC Advertising · All Rights Reserved</span>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileDrawer = document.getElementById('mobileDrawer');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileDrawer.classList.toggle('open');
+});
+document.querySelectorAll('.drawer-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileDrawer.classList.remove('open');
+  });
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-items a');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY>60);
+  let cur2='';
+  sections.forEach(s=>{ if(window.scrollY>=s.offsetTop-120) cur2=s.id; });
+  links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur2));
+});
+
+// Reveal on scroll
+const revEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+},{threshold:.1});
+revEls.forEach(el=>obs.observe(el));
+
+// Hide brand placeholders when video loads
+document.querySelectorAll('.brand-phone-frame video, .campus-phone-frame video').forEach(vid => {
+  vid.addEventListener('canplay', () => {
+    const ph = vid.nextElementSibling;
+    if (ph && ph.classList.contains('brand-phone-placeholder')) ph.style.display = 'none';
+  });
+});
+
+// Audience bars
+const fills = document.querySelectorAll('.aud-fill');
+const barObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width=e.target.dataset.width+'%'; barObs.unobserve(e.target); }});
+},{threshold:.3});
+fills.forEach(f=>barObs.observe(f));
+</script>
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
