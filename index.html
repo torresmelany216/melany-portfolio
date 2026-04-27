@@ -307,22 +307,27 @@ footer { background: var(--ink); display: flex; align-items: center; justify-con
   .hero-left { padding:6rem 1.2rem 2rem; }
   .hero-headline { font-size: clamp(2.8rem,12vw,4rem); }
   .hero-disciplines { font-size:.75rem; letter-spacing:.12em; }
-  .hero-badges { gap:.4rem; }
+  .hero-badges { gap:.4rem; flex-wrap:wrap; justify-content:center; }
   .badge { font-size:.62rem; padding:.35rem .8rem; }
   .hero-actions { flex-direction:column; align-items:center; gap:.75rem; }
   .section { padding:3rem 1.2rem; }
-  h2.display { font-size:clamp(2rem,9vw,3rem); }
-  .brands-phones-grid { grid-template-columns: repeat(2, 1fr); gap:1rem; }
-  .brand-phone-frame { width:100%; }
+  .section-inner { padding:0; }
+  h2.display { font-size:clamp(1.6rem,7vw,2.4rem); }
+  .brands-phones-grid { grid-template-columns: repeat(2, 1fr); gap:.75rem; }
+  .brand-phone-frame { width:100%; max-width:100%; }
+  .brand-phone-caption { max-width:100%; }
   .campus-grid { grid-template-columns:1fr; }
   .camcorder-body { flex-direction:column; width:100%; }
   .camcorder-screen { width:100%; aspect-ratio:16/9; }
-  .campus-phone-frame { width:120px; }
+  .campus-phone-frame { width:100px; }
   .platforms-row { grid-template-columns:1fr; }
   .big-stat-strip { grid-template-columns:1fr 1fr; }
   .contact-email-link { font-size:1.1rem; word-break:break-all; }
   .internship-case-inner { grid-template-columns:1fr; }
+  .internship-media, .internship-video-slot { max-height:300px; }
   .about-photos { height:280px; }
+  .work-intro { grid-template-columns:1fr; }
+  .campus-phones { justify-content:center; }
 }
 </style>
 </head>
@@ -551,7 +556,7 @@ footer { background: var(--ink); display: flex; align-items: center; justify-con
     <div class="work-intro">
       <div>
         <div class="eyebrow reveal">Work</div>
-        <h2 class="display reveal reveal-delay-1" style="font-size:2.2rem; white-space:nowrap;">I don't just create for <em>myself.</em></h2>
+        <h2 class="display reveal reveal-delay-1" style="font-size:clamp(1.8rem,6vw,2.2rem);">I don't just create for <em>myself.</em></h2>
       </div>
     </div>
     <div class="internship-cases">
